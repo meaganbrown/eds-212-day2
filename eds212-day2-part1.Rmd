@@ -14,6 +14,35 @@ knitr::opts_chunk$set(echo = TRUE)
 Find the derivative of $$f(x) = 5x^2$$
 
 ```{r}
-ex_1 <- 
+ex_1 <- expression(5 * x ^ 2)
+
+my_derivative <- deriv(ex_1, "x")
+
+my_derivative
+
+# I want to find the slope at x = 2.8
+
+x <- 2.8
+eval(my_derivative)
+
 ```
+
+Find the slope of $$g(z) = 2z^3-10.5z^2+4.1$$
+
+```{r include=FALSE}
+gz <- expression(2 * z ^ 3 - 10.5 * z ^ 2 + 4.1)
+
+dg_dz <- D(gz, 'z')
+
+dg_dz
+
+# Lets evaluate the slope over a range of values
+
+z <- seq(from = -3, to = 4, by = 0.5)
+
+#Evaluate it!
+eval(dg_dz)
+
+```
+
 
