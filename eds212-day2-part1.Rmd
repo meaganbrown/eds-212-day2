@@ -45,5 +45,8 @@ eval(dg_dz)
 
 ```
 
+```{r}
+library(palmerpenguins)
+data(package = 'palmerpenguins')
+```
 
-Adding text
