@@ -27,7 +27,9 @@ ggplot(data = penguins,
   geom_point(aes(color = species), size = 3) +
   labs(x = "Flipper Length (mm)",
        y = "Body Mass (g)") +
+  facet_wrap(~island) +
   theme_light()
+
  
 ```
 

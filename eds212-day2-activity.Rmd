@@ -1,0 +1,69 @@
+---
+title: "eds212_day2_activity"
+author: "Meagan Brown"
+date: '2022-08-02'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# Load libraries
+library(tidyverse)
+library(palmerpenguins)
+
+# usethis::use_git()
+# usethis::use_github()
+
+```
+
+## Find the derivative expression and slope at the indicated value for each the following functions in R
+
+$$f(x) = x^2$$ at x = 3
+
+```{r}
+exp_1 <- expression(x^2)
+x <- 3
+deriv_1 <- deriv(exp_1, "x")
+eval(deriv_1)
+
+#Answer: 2 * x OR 6
+```
+
+$$P(a) = 2(3a + 2)^4 - 5$$ at a = 1.2
+
+```{r}
+exp_2 <- expression(2 * (3 * a + 2) ^ 4)
+a <- 1.2
+deriv_2 <- deriv(exp_2, "a")
+eval(deriv_2)
+#Answer: 2 * (4 * (3 * a^3)) OR 4214.784
+```
+
+$$g(t) = (-4t)/((t^2+1)^3)$$ at t = 0
+
+```{r}
+exp_3 <- expression((-4 * t) / ((t ^ 2 + 1) ^ 3))
+t <- 0
+deriv_3 <- deriv(exp_3, "t")
+eval(deriv_3)
+#Answer: -4
+```
+
+## GGPLOT
+
+```{r}
+ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species)) 
+```
+
+```{r}
+#flipper length by species (species on the x-axis, flipper length on the y-axis). Update axis labels and add a title.
+
+ggplot(data = penguins, aes(x = species, y = flipper_length_mm)) +
+  geom_jitter(aes(color = species), size = 0.8) +
+  theme_light() +
+  labs(x = "Species", y = "Flipper Length (mm)", title = "Flipper Length by Species")
+```
